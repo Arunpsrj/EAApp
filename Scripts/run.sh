@@ -14,7 +14,7 @@ docker compose -p "$project" build
 docker compose -p "$project" up -d ea_api ea_webapp db selenium-hub firefox chrome
 docker compose -p "$project" up --no-deps ea_test
 
-container_name="${project}_ea_test_1"
+container_name="${project}_${service}_1"
 
 sleep 2
 
