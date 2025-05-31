@@ -11,13 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - name: Spawn Docker compose to build
-      run: docker compose -f "docker-compose.yml" up -d --build
     - name: Run Tests
       run: |
         echo -- Running Test cases ---
-        docker compose -f "docker-compose.yml" -p Testing up --build --exit-code-from ea_test
-    - name: Stop containers
-      if: ${{ always() }}
-      run: docker compose -f "docker-compose.yml" down
+        sh ./Scripts/run.sh
+
         

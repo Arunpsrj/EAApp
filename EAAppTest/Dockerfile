@@ -13,4 +13,5 @@ RUN dotnet build "EAAppTest.csproj" -c Release -o /app/build
 
 FROM build AS Test
 WORKDIR "/src/EAAppTest"
-CMD ["dotnet", "test"]
+RUN ["chmod", "+x", "../Scripts/WaitAndRun.sh"]
+ENTRYPOINT [ "../Scripts/WaitAndRun.sh"]
