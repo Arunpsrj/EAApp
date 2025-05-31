@@ -1,0 +1,33 @@
+{
+  "acceptInsecureCerts": false,
+  "browserName": "firefox",
+  "browserVersion": "95.0",
+  "moz:accessibilityChecks": false,
+  "moz:buildID": "20211129150630",
+  "moz:firefoxOptions": {
+  },
+  "moz:geckodriverVersion": "0.30.0",
+  "moz:headless": false,
+  "moz:processID": 210,
+  "moz:profile": "\u002ftmp\u002frust_mozprofileMSCEmJ",
+  "moz:shutdownTimeout": 60000,
+  "moz:useNonSpecCompliantPointerOrigin": false,
+  "moz:webdriverClick": true,
+  "pageLoadStrategy": "normal",
+  "platformName": "linux",
+  "platformVersion": "5.10.74.3-microsoft-standard-WSL2",
+  "proxy": {
+  },
+  "se:recordVideo": true,
+  "se:vnc": "ws:\u002f\u002f172.20.0.8:4444\u002fsession\u002f4741701f-5674-4354-8350-1383982c6243\u002fse\u002fvnc",
+  "se:vncEnabled": true,
+  "se:vncLocalAddress": "ws:\u002f\u002f172.20.0.8:7900",
+  "setWindowRect": true,
+  "strictFileInteractability": false,
+  "timeouts": {
+    "implicit": 0,
+    "pageLoad": 300000,
+    "script": 30000
+  },
+  "unhandledPromptBehavior": "dismiss and notify"
+}

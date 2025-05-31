@@ -1,0 +1,26 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "b118e02b-dd0a-462c-a348-eea32bedc36b": {
+      "ProjectGuid": "b118e02b-dd0a-462c-a348-eea32bedc36b",
+      "DisplayName": "EAWebApp",
+      "ColorIndex": 0
+    },
+    "bc9dc6d4-9510-43d0-854b-345d31a5f368": {
+      "ProjectGuid": "bc9dc6d4-9510-43d0-854b-345d31a5f368",
+      "DisplayName": "ProductAPI",
+      "ColorIndex": 1
+    },
+    "802849ce-d50d-4679-9127-89924a786a43": {
+      "ProjectGuid": "802849ce-d50d-4679-9127-89924a786a43",
+      "DisplayName": "EAAppTest",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
