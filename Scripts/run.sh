@@ -14,11 +14,16 @@ docker compose -p "$project" build
 docker compose -p "$project" up -d ea_api ea_webapp db selenium-hub firefox chrome
 docker compose -p "$project" up --no-deps ea_test
 
+container_name="${project}_ea_test_1"
 
-exit_code=$(docker inspect ea_test -f '{{ .State.ExitCode }}')
+sleep 2
 
-if [ $exit_code -eg 0 ]; then
-    exit $exit_code
+exit_code=$(docker inspect "$container_name" -f '{{ .State.ExitCode }}')
+
+if [ "$exit_code" -eq 0 ]; then
+    echo "Test passed"
+    exit 0
 else
-    echo "Test failed"
+    echo "Test failed with exit code $exit_code"
+    exit "$exit_code"
 fi
