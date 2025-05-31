@@ -40,17 +40,52 @@ services:
     networks:
       - ea_network
 
-  node-docker:
-    image: selenium/node-docker:4.1.0-20211209
-    volumes:
-      - ./assets:/opt/selenium/assets
-      - ./config.toml:/opt/bin/config.toml
+  chrome:
+    image: selenium/node-chrome:4.33.0-20250525
+    platform: linux/amd64
+    shm_size: 2gb
     depends_on:
       - selenium-hub
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
-      - SE_EVENT_BUS_PUBLISH_PORT=4442
-      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    networks:
+      - ea_network
+
+  firefox:
+    image: selenium/node-firefox:4.33.0-20250525
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+    networks:
+      - ea_network
+
+  chrome_video:
+    image: selenium/video:ffmpeg-7.1-20250525
+    volumes:
+      - /tmp/videos:/videos
+    depends_on:
+      - chrome
+    environment:
+      - DISPLAY_CONTAINER_NAME=chrome
+      - SE_NODE_GRID_URL=http://selenium-hub:4444
+#      - FILE_NAME=chrome_video.mp4
+      - SE_VIDEO_FILE_NAME=auto
+    networks:
+      - ea_network
+
+  firefox_video:
+    image: selenium/video:ffmpeg-7.1-20250525
+    volumes:
+      - /tmp/videos:/videos
+    depends_on:
+      - firefox
+    environment:
+      - DISPLAY_CONTAINER_NAME=firefox
+      - SE_NODE_GRID_URL=http://selenium-hub:4444
+#      - FILE_NAME=firefox_video.mp4
+      - SE_VIDEO_FILE_NAME=auto
     networks:
       - ea_network
 
