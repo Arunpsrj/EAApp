@@ -4,6 +4,7 @@ set -e
 set -x
 
 project="e2etest"
+service="eatest"  # <-- Make sure this line exists
 
 cd "$(dirname "${0}")/.."
 
@@ -12,7 +13,7 @@ export COMPOSE_HTTP_TIMEOUT=200
 docker compose -p "$project" build
 
 docker compose -p "$project" up -d ea_api ea_webapp db selenium-hub firefox chrome
-docker compose -p "$project" up --no-deps ea_test
+docker compose -p "$project" up --no-deps "$service"
 
 container_name="${project}_${service}_1"
 
