@@ -4,7 +4,8 @@ set -e
 set -x
 
 project="e2etest"
-service="eatest"  # <-- Make sure this line exists
+service="ea_test"          # docker-compose service name
+container_name="eatest"    # actual container name (from docker-compose.yml)
 
 cd "$(dirname "${0}")/.."
 
@@ -14,8 +15,6 @@ docker compose -p "$project" build
 
 docker compose -p "$project" up -d ea_api ea_webapp db selenium-hub firefox chrome
 docker compose -p "$project" up --no-deps "$service"
-
-container_name="${project}_${service}_1"
 
 sleep 2
 
