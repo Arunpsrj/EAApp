@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Spawn Docker compose to build
-      run: docker-compose -f "docker-compose.yml" up -d --build
+      run: docker compose -f "docker-compose.yml" up -d --build
     - name: Run Tests
       run: |
         echo -- Running Test cases ---
